@@ -129,7 +129,7 @@ public class clonesrv6
         public int handle(ZLoop loop, PollItem item, Object arg)
         {
             clonesrv6 srv = (clonesrv6) arg;
-            if (srv.kvmap != null) {
+            if (srv.kvmap != null && srv.active && !srv.passive) {
                 for (kvmsg msg : new ArrayList<kvmsg>(srv.kvmap.values())) {
                     srv.flushSingle(msg);
                 }
